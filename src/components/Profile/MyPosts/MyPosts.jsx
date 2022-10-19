@@ -3,7 +3,6 @@ import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = () => {
-    Post({name:"dggd", email:"OLO"})
     return (
     <div>
         My posts

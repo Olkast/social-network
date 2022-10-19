@@ -10,6 +10,10 @@
   grid-column-gap: 10px;
 }
 
+.app-wrapper-content {
+  background-color: #cedce9;
+  grid-area: c;
+}
 
 
 
