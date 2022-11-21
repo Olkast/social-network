@@ -1,6 +1,6 @@
 import React from "react";
 
-const Setting = (proms) => {
+const Setting = (props) => {
     return (
         <div>Setting</div>
     )
