@@ -5,16 +5,10 @@ import Message from "./Message/Message";
 import AddMessage from "../AddMessage/AddMessage";
 
 
-
-
-
-
 const Dialogs = (props) => {
-
 
     const messagesData = props.dialogs.messagesData;
     const dialogData = props.dialogs.dialogData;
-
 
     return (
         <div className={styles.dialogs}>
@@ -23,7 +17,7 @@ const Dialogs = (props) => {
             </div>
             <div className={styles.messages}>
                 {messagesData.map(m => <Message message={m.message}/>)}
-                <AddMessage updatePost={props.updatePost} dialogs={props.dialogs} addMessage={props.addMessage}/>
+                <AddMessage dispatch={props.dispatch} dialogs={props.dialogs}/>
             </div>
         </div>
     )
