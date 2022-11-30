@@ -5,7 +5,6 @@ import Friends from "../Friends/Friends";
 
 const NavBar = (props) => {
 
-
     return (
         <nav className={styles.nav}>
             <div className={styles.item}>

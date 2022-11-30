@@ -11,6 +11,8 @@ import Music from "./components/Music/Music";
 
 
 const App = (props) => {
+
+
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
@@ -18,8 +20,12 @@ const App = (props) => {
                 <NavBar state={props.state}/>
                 <div className='app-wrapper-content'>
                     <Routes>
-                        <Route path='/profile/*' element={<Profile profilePage={props.state.profilePage} dispatch={props.dispatch} />}/>
-                        <Route path='/dialogs/*' element={<Dialogs dialogs={props.state.dialogsPage} dispatch={props.dispatch} />}/>
+                        <Route path='/profile/*' element={<Profile
+                            store={props.store}
+                        />}/>
+                        <Route path='/dialogs/*' element={<Dialogs
+                            store={props.store}
+                        />}/>
                         <Route path='/news' element={<News/>} />
                         <Route path='/setting' element={<Setting/>} />
                         <Route path='/music' element={<Music/>} />

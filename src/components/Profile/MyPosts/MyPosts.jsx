@@ -1,18 +1,19 @@
 import React, {createRef} from "react";
 import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
-import {AddPostActionCreator, UpDatePostActionCreator} from "../../../redux/state";
+
 
 const MyPosts = (props) => {
 
-    const newPostText = props.profilePage.newPostText;
+    const newPostText = props.newPostText;
 
-    const addPost = (event) => {
-        props.dispatch(AddPostActionCreator(event.target.value));
+    const clickAddPost = () => {
+        props.AddPost();
     }
 
     const onChangePost = (event) => {
-        props.dispatch(UpDatePostActionCreator(event.target.value))
+        const text = event.target.value;
+        props.UpDatePost(text);
     }
 
     return (
@@ -20,10 +21,19 @@ const MyPosts = (props) => {
         <h3>My posts</h3>
         <div>
             <div className={styles.TextArea}>
-                <textarea value={ newPostText } onChange={ onChangePost } name="" id="" cols="30" rows="2"></textarea>
+                <textarea
+                    value={ newPostText }
+                    onChange={ onChangePost }
+                    cols="30"
+                    rows="2">
+                </textarea>
             </div>
             <div>
-                <button onClick={ addPost } className={styles.button}>Help me</button>
+                <button
+                    onClick={clickAddPost}
+                    className={styles.button}>
+                    Help me
+                </button>
             </div>
         </div>
         <div>
