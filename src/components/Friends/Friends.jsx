@@ -1,19 +1,20 @@
 import React from "react";
 import styles from "./Friends.module.css";
+import {connect} from "react-redux";
 
 
 const Friends = (props) => {
 
-
     const sideBarElements = props.sideBar.map(friend => (
         <div className={styles.icon}>
-            <img className={styles.img} src="https://shapka-youtube.ru/wp-content/uploads/2021/02/prikolnaya-avatarka-dlya-patsanov.jpg" alt=""/>
+            <img className={styles.img}
+                 src="https://shapka-youtube.ru/wp-content/uploads/2021/02/prikolnaya-avatarka-dlya-patsanov.jpg"
+                 alt=""/>
             <p>{friend.name}</p>
         </div>
     ));
 
-
-    return(
+    return (
         <div>
             <p className={styles.title}>Friends</p>
             <div className={styles.icons}>
@@ -23,5 +24,13 @@ const Friends = (props) => {
     )
 }
 
+const mapStateToProps = (state) => {
+    return {
+        sideBar: state.sideBar,
+    }
+}
 
-export default Friends;
+const FriendsContainer = connect(mapStateToProps)(Friends);
+
+
+export default FriendsContainer;

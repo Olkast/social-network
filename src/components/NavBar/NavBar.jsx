@@ -35,7 +35,7 @@ const NavBar = (props) => {
             <div className={styles.item}>
                 <NavLink className={({ isActive }) =>
                     isActive ? styles.active : undefined
-                } to="/setting"><Friends sideBar={props.state.sideBar} /></NavLink>
+                } to="/setting"><Friends/></NavLink>
             </div>
         </nav>
     )

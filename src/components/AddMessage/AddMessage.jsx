@@ -1,10 +1,8 @@
 import React, {createRef} from "react";
 import styles from "./AddMessage.module.css";
-import {AddMessageActionCreator, UpDateMessageActionCreator} from "../../redux/dialogs-reducer";
+
 
 const AddMessage = (props) => {
-    console.log(props)
-
 
     const addNewMessage = () => {
         props.AddMessage();

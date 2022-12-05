@@ -5,18 +5,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import store from "./redux/redux-store";
-import state from "./redux/redux-store";
+import {Provider} from "react-redux";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const rerenderEntireTree = (state) => {
+const rerenderEntireTree = () => {
     root.render(
         <React.StrictMode>
-            <App
-                state={state}
-                store={store}
-                dispatch={store.dispatch.bind(store)}
-            />
+            <Provider store={store}>
+                <App />
+            </Provider>
         </React.StrictMode>
     );
 }
@@ -25,7 +23,7 @@ rerenderEntireTree (store.getState());
 
 store.subscribe(() => {
     const state = store.getState();
-    rerenderEntireTree(state);
+    rerenderEntireTree();
 });
 
 
