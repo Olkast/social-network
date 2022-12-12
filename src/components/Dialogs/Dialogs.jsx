@@ -6,7 +6,7 @@ import AddMessageContainer from "../AddMessage/AddMessageContainer";
 import {connect} from "react-redux";
 
 
-const Dialogs = (props) => {
+export const Dialogs = (props) => {
 
         return (
             <div className={styles.dialogs}>

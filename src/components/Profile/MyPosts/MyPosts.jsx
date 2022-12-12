@@ -1,20 +1,18 @@
 import React, {createRef} from "react";
 import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
-import post from "./Post/Post";
+
 
 
 const MyPosts = (props) => {
-    console.log()
 
     const clickAddPost = () => {
         props.AddPost();
     }
 
-    const textRef = React.createRef();
-
-    const onChangePost = () => {
-        props.UpDatePost(textRef);
+    const onChangePost = (e) => {
+        const text = e.target.value;
+        props.UpDatePost(text);
     }
 
     return (
@@ -25,7 +23,6 @@ const MyPosts = (props) => {
                 <textarea
                     value={ props.newPostText }
                     onChange={ onChangePost }
-                    ref={textRef}
                     cols="30"
                     rows="2">
                 </textarea>
@@ -40,7 +37,7 @@ const MyPosts = (props) => {
         </div>
         <div>
             {props.postData.map(({text}) => {
-                console.log(text)
+
                 return (
                     <Post text={text}/>
                 )

@@ -2,15 +2,16 @@ import React, {createRef} from "react";
 import styles from "./AddMessage.module.css";
 
 
+
 const AddMessage = (props) => {
 
     const addNewMessage = () => {
         props.AddMessage();
     }
 
-    const onChange = (event) => {
-        const text = event.target.value;
-        props.UpDateMessage(text);
+    const onChange = (e) => {
+        const message = e.target.value;
+        props.UpDateMessage(message);
     }
 
     return (

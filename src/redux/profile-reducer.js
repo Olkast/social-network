@@ -12,18 +12,21 @@ const initialState = {
 
 const profileReducer = (state = initialState, action) => {
 
+    let copyState = { ...state }
+
     switch (action.type) {
         case ADD_POST:
             const newPost = {
                 id: 4,
                 text: state.newPostText,
             }
-            state.postData.push(newPost);
-            state.newPostText = '';
-            return state;
+            copyState.postData = [...state.postData];
+            copyState.postData.push(newPost);
+            copyState.newPostText = '';
+            return copyState;
         case UPDATE_POST:
-            state.newPostText = action.text;
-            return state;
+            copyState.newPostText = action.text;
+            return copyState;
         default:
             return state;
     }
@@ -31,7 +34,7 @@ const profileReducer = (state = initialState, action) => {
 
 export const AddPostActionCreator = () => ({type: ADD_POST});
 
-export const UpDatePostActionCreator = (postText) => ({
-    type: UPDATE_POST, text: postText});
+export const UpDatePostActionCreator = (text) => ({
+    type: UPDATE_POST, text: text});
 
 export default profileReducer;

@@ -23,18 +23,21 @@ const initialState = {
 
 const dialogsReducer = (state = initialState, action) => {
 
+    let copyState = {...state};
+
     switch (action.type) {
         case ADD_MESSAGE:
             const newMessage = {
                 id: 5,
                 message: state.newMessageText,
             }
-            state.messagesData.push(newMessage);
-            state.newMessageText = '';
-            return state;
+            copyState.messagesData = [...state.messagesData];
+            copyState.messagesData.push(newMessage);
+            copyState.newMessageText = '';
+            return copyState;
         case UPDATE_MESSAGE:
-            state.newMessageText = action.message;
-            return state;
+            copyState.newMessageText = action.message;
+            return copyState;
         default:
             return state;
     }
@@ -43,8 +46,8 @@ const dialogsReducer = (state = initialState, action) => {
 
 export const AddMessageActionCreator = () => ({type: ADD_MESSAGE});
 
-export const UpDateMessageActionCreator = (newtText) => ({
-    type: UPDATE_MESSAGE, message: newtText});
+export const UpDateMessageActionCreator = (message) => ({
+    type: UPDATE_MESSAGE, message: message});
 
 
 export default dialogsReducer;
