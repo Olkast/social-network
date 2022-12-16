@@ -1,6 +1,7 @@
 import React, {createRef} from "react";
 import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
+import {keyboard} from "@testing-library/user-event/dist/keyboard";
 
 
 
@@ -37,7 +38,6 @@ const MyPosts = (props) => {
         </div>
         <div>
             {props.postData.map(({text}) => {
-
                 return (
                     <Post text={text}/>
                 )

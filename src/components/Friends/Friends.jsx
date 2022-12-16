@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 const Friends = (props) => {
 
     const sideBarElements = props.sideBar.map(friend => (
-        <div className={styles.icon}>
+        <div key={friend.id} className={styles.icon}>
             <img className={styles.img}
                  src="https://shapka-youtube.ru/wp-content/uploads/2021/02/prikolnaya-avatarka-dlya-patsanov.jpg"
                  alt=""/>
