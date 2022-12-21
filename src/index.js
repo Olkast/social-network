@@ -11,11 +11,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const rerenderEntireTree = () => {
     root.render(
-        <React.StrictMode>
             <Provider store={store}>
                 <App />
             </Provider>
-        </React.StrictMode>
     );
 }
 
